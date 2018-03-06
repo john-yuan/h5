@@ -1,0 +1,34 @@
+{
+  "name": "h5",
+  "version": "1.0.0",
+  "description": "H5 活动推广页面快速构建工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./dev-tools/build.js",
+    "start": "node ./dev-tools/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "n"
+  },
+  "keywords": [
+    "h5"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "clean-css": "^4.1.9",
+    "colors": "^1.1.2",
+    "fs-extra": "^5.0.0",
+    "html-minifier": "^3.5.8",
+    "jsdom": "^11.6.0",
+    "less": "^2.7.3",
+    "postcss": "^6.0.16",
+    "uglify-js": "^3.3.8"
+  },
+  "author": "John Yuan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5 推广页面快速制作工具演示</title>
+    <!-- 开发环境下直接引入 less 文件, 打包时会自动转换为 css -->
+    <link rel="stylesheet/less" href="src/styles/app.less">
+    <link rel="stylesheet/less" href="src/styles/index.less">
+    <!-- 打包时会处理 style 标签中的 CSS: 加前缀和压缩 -->
+    <style>
+        #btnTest {
+            height: 2rem;
+        }
+    </style>
+    <!-- 在线上环境置 DEBUG 为 false -->
+    <script>
+        var DEBUG = false;
+    </script>
+    <!-- 在开发环境置 DEBUG 为 true 以覆盖线上配置，打包时会移除此覆盖节点。 -->
+    <script @remove>
+        var DEBUG = true;
+    </script>
+    <!-- 开发环境下引入 less.js 编译 less 文件, 添加 @remove 注解以在打包时移除此节点 -->
+    <script @remove src="src/dev/less.js"></script>
+</head>
+<body>
+    <script>
+        (function() {
+            var html = document.documentElement;
+            var htmlWidth = html.offsetWidth;
+            var innerWidth = window.innerWidth;
+            var bodyWidth = document.body.offsetWidth;
+            var viewWidth = Math.max(htmlWidth, innerWidth, bodyWidth);
+            var uiWidth = 320;    // 设计稿宽度
+            var uiFontSize = 14;  // 设计稿字体大小
+            var finalFontSize = viewWidth/(uiWidth/uiFontSize);
+            html.style.fontSize = finalFontSize + "px";
+        })();
+    </script>
+    <h1>H5</h1>
+    <p>微信推广页面 H5 快速构建工具。</p>
+    <div class="avatar"></div>
+    <p>
+        <button id="btnTest" type="button">点击测试</button>
+    </p>
+    <!-- 将以下 3 个文件合并为 1 个文件，并保存在 src/polyfill/polyfill-[hash].js 中。 -->
+    <script @bundle="src/polyfill/polyfill" src="src/polyfill/es5-shim.js"></script>
+    <script @bundle="src/polyfill/polyfill" src="src/polyfill/es5-sham.js"></script>
+    <script @bundle="src/polyfill/polyfill" src="src/polyfill/es6-promise.js"></script>
+    <!-- 将以下 2 个文件合并为 1 个文件，并保存在 src/libs/libs-[hash].js 中。 -->
+    <script @bundle="src/libs/libs" src="src/libs/zepto.js"></script>
+    <script @bundle="src/libs/libs" src="src/libs/plupload.js"></script>
+    <!-- 打包工具会压缩处理以下脚本 -->
+    <script src="src/scripts/app.js"></script>
+</body>
+</html>
