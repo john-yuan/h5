@@ -4,8 +4,8 @@
 
 * 内置 [LESS][less] 支持；
 * 打包时压缩 HTML;
-* 打包时处理 JavaScript 脚本（合并、压缩混淆）；
-* 打包时处理样式脚本（预编译 LESS，添加浏览器前缀，图片转 DataURI，压缩等）；
+* 打包时处理 JavaScript 脚本（合并、压缩混淆等）；
+* 打包时处理样式脚本（预编译 [LESS][less]，添加浏览器前缀，图片转 DataURI，压缩等）；
 * 打包时添加文件 hash 后缀；
 * 内置静态文件服务器，方便开发调试；
 
@@ -64,7 +64,7 @@ npm run build
 <script @bundle="src/libs/libs" src="src/libs/plupload.js"></script>
 ```
 
-## UglifyJS global_defs
+## DEBUG
 
 在打包 JavaScript 代码时，会在 [UglifyJS][uglifyjs] 的配置中设置 `compress.global_defs.DEBUG` 为 `false`。写代码时可根据 `DEBUG` 全局变量来判断运行时环境，[UglifyJS][uglifyjs] 在打包时会进行优化。如下：
 
@@ -77,6 +77,10 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
 ```
 
 [uglifyjs]: https://github.com/mishoo/UglifyJS2 "UglifyJS"
+
+## 其它
+
+本项目预置了一些第三方库（见于 `src/libs` 目录下，相关协议位于 [licenses](licenses) 目录下），但不是必须的，用户可更根据实际q情况进行添加或移除。
 
 ## License
 
